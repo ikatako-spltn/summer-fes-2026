@@ -108,23 +108,50 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* ===============================================
+   HEADER LOGO STYLES (新ロゴ用サイズ調整)
+   =============================================== */
+
+/* ロゴの親要素 */
 .header-logo {
   display: flex;
   align-items: center;
   height: 100%;
-  width: 220px;
-  overflow: hidden;
-  position: relative;
 }
 
+/* ロゴ画像本体（PCサイズ） */
 .header-logo img {
-  height: 90px;
-  width: auto;
+  height: 48px;            /* 高さを指定して縦幅を揃える */
+  width: auto;             /* アスペクト比を維持 */
+  max-width: 220px;        /* PCでの最大幅 */
   object-fit: contain;
-  transform: scale(1.5) translateX(10px); 
-  transform-origin: left center;
+  display: block;
+  /* 少し明るさを際立たせるシャドウ（お好みで） */
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   transition: transform 0.2s ease;
 }
+
+.header-logo img:hover {
+  transform: scale(1.04); /* ホバー時に微拡大 */
+}
+
+
+/* --- スマホ表示時のサイズ調整 (768px以下) --- */
+@media (max-width: 768px) {
+.header {
+    padding: 0 20px !important; /* 画面端から20pxの内側余白を作る */
+    justify-content: space-between !important;
+  }
+
+  /* スマホのロゴサイズと位置調整 */
+  .header-logo img {
+    width: 90px !important;    /* ★ ご希望通り90pxに固定 */
+    height: auto !important;   /* 比率を維持 */
+    max-width: none !important;
+    margin-left: 40px;          /* 端から少し離すための微調整 */
+  }
+}
+
 
 .header-logo img:hover {
   transform: scale(1.55) translateX(10px);
