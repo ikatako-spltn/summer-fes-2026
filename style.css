@@ -1233,3 +1233,153 @@ a {
     left: -3%;
   }
 }
+
+/* ===============================================
+   MATCHES (対戦表) STYLES
+   =============================================== */
+
+.matches-section {
+  padding: 60px 20px;
+  max-width: 700px; /* 対戦表が見やすい幅に制限 */
+  margin: 0 auto;
+}
+
+.matches-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.match-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+/* 第1試合 などの黄色タグ */
+.match-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--neon-yellow, #dcf800);
+  color: #000;
+  font-family: var(--font-heading, sans-serif);
+  font-weight: 900;
+  font-size: 1.4rem;
+  padding: 6px 20px;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #000;
+  letter-spacing: 1px;
+}
+
+/* 試合カードの親要素（右上の001等を配置） */
+.match-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 右上の番号（001, 002など） */
+.match-num {
+  align-self: flex-end;
+  font-family: monospace, sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #a0a5b5;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+/* 対戦カード本体：全体を中央揃えに */
+.match-card {
+  background: #14171a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* ★ 中身をすべて水平中央に揃える */
+  justify-content: center;
+  gap: 12px;                  /* 上下要素の間隔をすっきり統一 */
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* 各チームの行（A1 チーム名） */
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* ★ チーム情報も中央揃え */
+  gap: 12px;
+  width: 100%;
+}
+
+/* VS バッジ：中心にどっしり配置 */
+.vs-badge {
+  align-self: center;        /* ★ 確実に中央配置 */
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #000;
+  background: var(--neon-pink, #ff007f);
+  padding: 2px 16px;
+  border-radius: 4px;
+  transform: rotate(-5deg);
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.6);
+  margin: 4px 0;             /* 前後の余白を整える */
+  z-index: 1;
+}
+
+
+/* A1, A2 などのID */
+.team-id {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #727a8c; /* グレーがかった文字色 */
+  min-width: 32px;
+}
+
+/* チーム名 */
+.team-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* チーム情報（名前＋メンバー）の親ブロック */
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* センタリングに揃える */
+  gap: 3px;
+}
+
+/* ★ 対戦表内の小さなメンバー表示 */
+.match-members {
+  font-size: 0.75rem;                       /* 小さめの文字サイズ */
+  color: rgba(255, 255, 255, 0.55);          /* チーム名より控えめなグレー */
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+}
+
+/* スマホ表示の微調整 */
+@media (max-width: 768px) {
+  .match-card {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+  
+  .team-id {
+    font-size: 1.2rem;
+  }
+  
+  .team-name {
+    font-size: 1rem;
+  }
+}
